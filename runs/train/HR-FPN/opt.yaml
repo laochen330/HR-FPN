@@ -7,7 +7,7 @@ batch_size: 4
 imgsz: 1024
 rect: false
 resume: false
-cwloss: false
+cwloss: true
 nosave: false
 noval: false
 noautoanchor: false

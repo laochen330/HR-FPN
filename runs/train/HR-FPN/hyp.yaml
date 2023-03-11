@@ -12,7 +12,7 @@ obj: 1.0
 obj_pw: 1.0
 iou_t: 0.2
 anchor_t: 4.0
-fl_gamma: 0.0
+fl_gamma: 1.5
 hsv_h: 0.015
 hsv_s: 0.7
 hsv_v: 0.4
