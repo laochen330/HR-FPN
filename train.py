@@ -454,15 +454,17 @@ def train(hyp,  # path/to/hyp.yaml or hyp dictionary
     return results
 
 
+# python train.py  --batch 4 --device 0,1
+# python -m torch.distributed.launch --nproc_per_node 2 train.py --device 0,1
 def parse_opt(known=False):
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', type=str, default='', help='initial weights path')
-    parser.add_argument('--cfg', type=str, default='models/yolov5n.yaml', help='model.yaml path')
+    parser.add_argument('--cfg', type=str, default='models/HR-FPN.yaml', help='model.yaml path')
     parser.add_argument('--data', type=str, default=ROOT / 'data/tiny-person.yaml',
                         help='dataset.yaml path')
     parser.add_argument('--hyp', type=str, default=ROOT / 'data/hyps/hyp.scratch.yaml', help='hyperparameters path')
     parser.add_argument('--epochs', type=int, default=300)
-    parser.add_argument('--batch-size', type=int, default=4, help='total batch size for all GPUs, -1 for autobatch')
+    parser.add_argument('--batch-size', type=int, default=8, help='total batch size for all GPUs, -1 for autobatch')
     parser.add_argument('--imgsz', '--img', '--img-size', type=int, default=1024, help='train, val image size (pixels)')
     parser.add_argument('--rect', action='store_true', help='rectangular training')
     parser.add_argument('--resume', nargs='?', const=True, default=False, help='resume most recent training')
